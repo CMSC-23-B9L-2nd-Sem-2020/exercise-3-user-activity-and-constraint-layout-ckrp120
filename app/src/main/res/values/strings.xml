@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Lights Out</string>
+    <string name="title">Lights Out</string>
+    <string name="nickname">Enter your nickname</string>
+    <string name="tapcount">0</string>
+</resources>
