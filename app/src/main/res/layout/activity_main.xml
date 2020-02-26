@@ -10,50 +10,65 @@
 
     <ImageView
         android:id="@+id/light23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="168dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toEndOf="@+id/light22"
-        app:layout_constraintTop_toBottomOf="@+id/light19"
+        app:layout_constraintTop_toBottomOf="@+id/light18"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        style="@style/lightspace"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toEndOf="@+id/light23"
         app:layout_constraintTop_toBottomOf="@+id/light19"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/off" />
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light24"
         app:layout_constraintTop_toBottomOf="@+id/light20"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light19"
         app:layout_constraintTop_toBottomOf="@+id/light15"
         app:srcCompat="@drawable/off" />
 
     <ImageView
+
         android:id="@+id/light19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light18"
         app:layout_constraintTop_toBottomOf="@+id/light14"
         app:srcCompat="@drawable/off" />
@@ -70,7 +85,7 @@
         android:shadowRadius="50"
         android:text="@string/title"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,206 +102,267 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        />
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light1"
         app:layout_constraintTop_toBottomOf="@+id/nickname"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="48dp"
+        app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nickname"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/light1"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/light6"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/light11"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/light16"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light21"
         app:layout_constraintTop_toBottomOf="@+id/light17"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
+        style="@style/lightspace"
         android:id="@+id/light17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light16"
         app:layout_constraintTop_toBottomOf="@+id/light12"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
         android:id="@+id/light18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toEndOf="@+id/light17"
         app:layout_constraintTop_toBottomOf="@+id/light13"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
         android:id="@+id/light12"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light11"
         app:layout_constraintTop_toBottomOf="@+id/light7"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light13"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toEndOf="@+id/light12"
         app:layout_constraintTop_toBottomOf="@+id/light8"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light14"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toEndOf="@+id/light13"
         app:layout_constraintTop_toBottomOf="@+id/light9"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
         android:id="@+id/light15"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light14"
         app:layout_constraintTop_toBottomOf="@+id/light10"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
         android:id="@+id/light7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light6"
         app:layout_constraintTop_toBottomOf="@+id/light2"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"/>
 
     <ImageView
         android:id="@+id/light8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light7"
         app:layout_constraintTop_toBottomOf="@+id/light3"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        style="@style/lightspace"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toEndOf="@+id/light8"
         app:layout_constraintTop_toBottomOf="@+id/light4"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light9"
         app:layout_constraintTop_toBottomOf="@+id/light5"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        style="@style/lightspace"
         android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toEndOf="@+id/light2"
         app:layout_constraintTop_toBottomOf="@+id/nickname"
-        app:srcCompat="@drawable/off" />
-
-    <ImageView
-        android:id="@+id/light4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toEndOf="@+id/light3"
-        app:layout_constraintTop_toBottomOf="@+id/nickname"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <ImageView
         android:id="@+id/light5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/lightspace"
         android:layout_marginStart="20dp"
         android:layout_marginTop="48dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/light4"
         app:layout_constraintTop_toBottomOf="@+id/nickname"
+        app:layout_constraintWidth_percent="0.25"
+        app:srcCompat="@drawable/off" />
+
+    <ImageView
+        android:id="@+id/light4"
+        style="@style/lightspace"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/light3"
+        app:layout_constraintTop_toBottomOf="@+id/nickname"
+        app:layout_constraintWidth_percent="0.25"
         app:srcCompat="@drawable/off" />
 
     <TextView
@@ -295,13 +371,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="96dp"
+        android:layout_marginBottom="122dp"
         android:text="@string/tapcount"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/light5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/nickname"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.787" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

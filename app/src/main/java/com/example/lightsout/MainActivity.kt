@@ -7,22 +7,22 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    private val gameStart: Boolean = false
-    private val gameWin: Boolean = true
+    private var gameStart: Boolean = false
     private var tapCount: Int = 0
     private lateinit var tapShowCount: TextView
-    private val gameGrid = listOf(
-        listOf(0, 0, 0, 0, 0),
-        listOf(0, 0, 0, 0, 0),
-        listOf(0, 0, 0, 0, 0),
-        listOf(0, 0, 0, 0, 0),
-        listOf(0, 0, 0, 0, 0)
+    private var gameGrid = listOf(
+        arrayOf(0, 0, 0, 0, 0),
+        arrayOf(0, 0, 0, 0, 0),
+        arrayOf(0, 0, 0, 0, 0),
+        arrayOf(0, 0, 0, 0, 0),
+        arrayOf(0, 0, 0, 0, 0)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tapShowCount = findViewById(R.id.tapShowCount)
+        setListeners()
     }
 
     private fun getId(row: Int, column: Int): Int{
@@ -47,14 +47,71 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
- /*   private fun flipLights(view: View, row: Int, col: Int) {
-        //flip button itself
+    private fun flipLights(view: View, row: Int, col: Int) {
+        if(!gameStart) gameStart = true
+        //flip light itself
+        val mainLight: ImageView = findViewById(getId(row, col))
         if(gameGrid[row][col] == 0){
-            val mainLight: ImageView =
+            mainLight.setImageResource(R.drawable.on)
+            gameGrid[row][col] = 1
+        }else{
+            mainLight.setImageResource(R.drawable.off)
+            gameGrid[row][col] = 0
         }
 
+        //flip light on top
+        if(row - 1 >= 0){ //check if top button exists
+            val topLight: ImageView = findViewById(getId(row-1, col))
+            if(gameGrid[row-1][col] == 0){
+                topLight.setImageResource(R.drawable.on)
+                gameGrid[row-1][col] = 1
+            }else{
+                topLight.setImageResource(R.drawable.off)
+                gameGrid[row-1][col] = 0
+            }
+        }
+
+        //flip light below
+        if(row+1 < 5){
+
+            val bottomLight: ImageView = findViewById(getId(row+1, col))
+            if(gameGrid[row+1][col] == 0){
+                bottomLight.setImageResource(R.drawable.on)
+                gameGrid[row+1][col] = 1
+            }else{
+                bottomLight.setImageResource(R.drawable.off)
+                gameGrid[row+1][col] = 0
+            }
+
+        }
+
+        //flip light on the left
+        if(col-1 >= 0){
+            val leftLight: ImageView = findViewById(getId(row, col-1))
+            if(gameGrid[row][col-1] == 0){
+                leftLight.setImageResource(R.drawable.on)
+                gameGrid[row][col-1] = 1
+            }else{
+                leftLight.setImageResource(R.drawable.off)
+                gameGrid[row][col-1] = 0
+            }
+        }
+
+        //flip light on the right
+        if(col+1 < 5){
+            val leftLight: ImageView = findViewById(getId(row, col+1))
+            if(gameGrid[row][col+1] == 0){
+                leftLight.setImageResource(R.drawable.on)
+                gameGrid[row][col+1] = 1
+            }else{
+                leftLight.setImageResource(R.drawable.off)
+                gameGrid[row][col+1] = 0
+            }
+        }
+
+        countUp(view)
+
     }
-*/
 
     private fun countUp(view: View) {
         tapCount++
