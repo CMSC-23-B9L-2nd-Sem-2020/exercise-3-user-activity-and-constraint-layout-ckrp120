@@ -1,19 +1,30 @@
 package com.example.lightsout
 
+import android.content.Context
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.inputmethod.InputMethodManager
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Toast
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class MainActivity : AppCompatActivity() {
     private var gameStart: Boolean = false;
     private var tapCount: Int = 0
     private lateinit var tapShowCount: TextView
     private lateinit var retryBtn: Button
+    private lateinit var nicknameTextView: TextView
+    private lateinit var nicknameEditText: EditText
+    private lateinit var submitBtn: Button
     private var gameGrid = listOf(
         arrayOf(1, 1, 1, 1, 1),
         arrayOf(1, 1, 1, 1, 1),
@@ -25,11 +36,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        nicknameEditText = findViewById(R.id.nickname)
+        nicknameTextView = findViewById(R.id.nicknameShow)
+        submitBtn = findViewById(R.id.submit)
         retryBtn = findViewById(R.id.retry)
         retryBtn.visibility = View.GONE
+        retryBtn.setOnClickListener { retry() }
+        submitBtn.setOnClickListener { changeNickname(it) }
+        nicknameTextView.setOnClickListener{ updateNickname() }
         tapShowCount = findViewById(R.id.tapShowCount)
         setListeners()
-        retryBtn.setOnClickListener { retry() }
+
+
 
     }
 
@@ -121,7 +139,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         countUp(view)
+        var playerWin: Boolean = true
+        //check if the player has won the game
+        for(i: Int in (0..4)){
+            for(j: Int in (0..4)){
+                if(gameGrid[i][j] == 1){
+                    playerWin = false
+                    break
+                }
+            }
+        }
 
+        if(playerWin){
+            val winToast = Toast.makeText(
+                this, R.string.toast_message,
+                Toast.LENGTH_SHORT
+            )
+
+            winToast.show()
+        }
     }
 
     private fun countUp(view: View) {
@@ -147,6 +183,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun updateNickname(){
+        nicknameTextView.visibility = View.GONE
+        nicknameEditText.visibility = View.VISIBLE
+        submitBtn.visibility = View.VISIBLE
+        nicknameEditText.requestFocus()
+
+    }
+
+    private fun changeNickname(view: View){
+        nicknameTextView.text = nicknameEditText.text
+
+        nicknameTextView.visibility = View.VISIBLE
+        nicknameEditText.visibility = View.GONE
+        submitBtn.visibility = View.GONE
+
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
 
 
