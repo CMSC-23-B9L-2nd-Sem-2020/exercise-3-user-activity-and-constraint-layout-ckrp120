@@ -3,4 +3,7 @@
     <string name="title">Lights Out</string>
     <string name="nickname">Enter your nickname</string>
     <string name="tapcount">0</string>
+    <string name="retry">retry</string>
+    <string name="taps">Taps:</string>
+    <string name="submit">Submit</string>
 </resources>

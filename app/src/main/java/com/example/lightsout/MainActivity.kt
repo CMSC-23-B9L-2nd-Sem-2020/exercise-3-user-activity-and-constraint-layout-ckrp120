@@ -1,28 +1,36 @@
 package com.example.lightsout
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var gameStart: Boolean = false
+    private var gameStart: Boolean = false;
     private var tapCount: Int = 0
     private lateinit var tapShowCount: TextView
+    private lateinit var retryBtn: Button
     private var gameGrid = listOf(
-        arrayOf(0, 0, 0, 0, 0),
-        arrayOf(0, 0, 0, 0, 0),
-        arrayOf(0, 0, 0, 0, 0),
-        arrayOf(0, 0, 0, 0, 0),
-        arrayOf(0, 0, 0, 0, 0)
+        arrayOf(1, 1, 1, 1, 1),
+        arrayOf(1, 1, 1, 1, 1),
+        arrayOf(1, 1, 1, 1, 1),
+        arrayOf(1, 1, 1, 1, 1),
+        arrayOf(1, 1, 1, 1, 1)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        retryBtn = findViewById(R.id.retry)
+        retryBtn.visibility = View.GONE
         tapShowCount = findViewById(R.id.tapShowCount)
         setListeners()
+        retryBtn.setOnClickListener { retry() }
+
     }
 
     private fun getId(row: Int, column: Int): Int{
@@ -48,7 +56,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun flipLights(view: View, row: Int, col: Int) {
-        if(!gameStart) gameStart = true
+        if(!gameStart){
+            gameStart = true
+            retryBtn.visibility = View.VISIBLE
+        }
         //flip light itself
         val mainLight: ImageView = findViewById(getId(row, col))
         if(gameGrid[row][col] == 0){
@@ -119,4 +130,24 @@ class MainActivity : AppCompatActivity() {
             tapShowCount.text = tapCount.toString()
         }
     }
+
+    private fun retry(){
+        tapCount = 0
+        if(tapShowCount !== null){
+            tapShowCount.text = tapCount.toString()
+        }
+
+        for(i: Int in (0..4)){
+            for(j: Int in (0..4)){
+                val light: ImageView = findViewById(getId(i,j))
+                light.setImageResource(R.drawable.on)
+
+                gameGrid[i][j] = 1
+            }
+        }
+    }
+
+
+
+
 }
