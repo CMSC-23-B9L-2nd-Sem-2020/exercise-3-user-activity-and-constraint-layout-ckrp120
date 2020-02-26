@@ -18,14 +18,14 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 class MainActivity : AppCompatActivity() {
-    private var gameStart: Boolean = false;
-    private var tapCount: Int = 0
-    private lateinit var tapShowCount: TextView
-    private lateinit var retryBtn: Button
-    private lateinit var nicknameTextView: TextView
-    private lateinit var nicknameEditText: EditText
-    private lateinit var submitBtn: Button
-    private var gameGrid = listOf(
+    private var gameStart: Boolean = false; //indicates whether the player has tapped at least one light
+    private var tapCount: Int = 0 //counter for how many lights a player has tapped
+    private lateinit var tapShowCount: TextView //textView for tapCount
+    private lateinit var retryBtn: Button //button which resets the game
+    private lateinit var nicknameTextView: TextView //textView for nickname
+    private lateinit var nicknameEditText: EditText //editText for nickname
+    private lateinit var submitBtn: Button //button which submits the nickname
+    private var gameGrid = listOf( //array representation of the lights
         arrayOf(1, 1, 1, 1, 1),
         arrayOf(1, 1, 1, 1, 1),
         arrayOf(1, 1, 1, 1, 1),
@@ -36,13 +36,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        hideLights()
         nicknameEditText = findViewById(R.id.nickname)
         nicknameTextView = findViewById(R.id.nicknameShow)
         submitBtn = findViewById(R.id.submit)
         retryBtn = findViewById(R.id.retry)
         retryBtn.visibility = View.GONE
         retryBtn.setOnClickListener { retry() }
-        submitBtn.setOnClickListener { changeNickname(it) }
+        submitBtn.setOnClickListener {
+            changeNickname(it)
+            showLights()
+        }
         nicknameTextView.setOnClickListener{ updateNickname() }
         tapShowCount = findViewById(R.id.tapShowCount)
         setListeners()
@@ -51,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getId(row: Int, column: Int): Int{
+    private fun getId(row: Int, column: Int): Int{ //creates a list of ids and returns the id
         val gridID = listOf(
             listOf(R.id.light1, R.id.light2, R.id.light3, R.id.light4, R.id.light5),
             listOf(R.id.light6, R.id.light7, R.id.light8, R.id.light9, R.id.light10),
@@ -63,7 +67,24 @@ class MainActivity : AppCompatActivity() {
         return gridID[row][column]
     }
 
-    private fun setListeners(){
+    private fun hideLights(){ //toggles visibility of lights off
+        for(row: Int in (0..4)){
+            for(col: Int in (0..4)){
+                findViewById<ImageView>(getId(row, col)).visibility = View.GONE
+            }
+        }
+    }
+
+    private fun showLights(){ //toggles visibility of lights on
+        for(row: Int in (0..4)){
+            for(col: Int in (0..4)){
+                findViewById<ImageView>(getId(row, col)).visibility = View.VISIBLE
+            }
+        }
+    }
+
+
+    private fun setListeners(){ //checks which button is pressed and then sets a listener to handle flipLights
         for(row: Int in (0..4)){
             for(col: Int in (0..4)){
                 findViewById<ImageView>(getId(row, col)).setOnClickListener{
@@ -73,7 +94,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun flipLights(view: View, row: Int, col: Int) {
+    private fun flipLights(view: View, row: Int, col: Int) { //main function for toggling lights on/off
+        //toggles retry button visibility at the start
         if(!gameStart){
             gameStart = true
             retryBtn.visibility = View.VISIBLE
@@ -150,6 +172,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //shows a toast when the player has successfully turned off all the lights
         if(playerWin){
             val winToast = Toast.makeText(
                 this, R.string.toast_message,
@@ -160,14 +183,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun countUp(view: View) {
+    private fun countUp(view: View) { //adds +1 to the counter whenever the player taps a light and updates the textView
         tapCount++
         if(tapShowCount !== null){
             tapShowCount.text = tapCount.toString()
         }
     }
 
-    private fun retry(){
+    private fun retry(){ //resets the game
         tapCount = 0
         if(tapShowCount !== null){
             tapShowCount.text = tapCount.toString()
@@ -188,6 +211,7 @@ class MainActivity : AppCompatActivity() {
         nicknameEditText.visibility = View.VISIBLE
         submitBtn.visibility = View.VISIBLE
         nicknameEditText.requestFocus()
+
 
     }
 
